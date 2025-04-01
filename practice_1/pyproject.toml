@@ -1,0 +1,17 @@
+[project]
+name = "practice-1"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "liminfinity", email = "108136720+liminfinity@users.noreply.github.com" },
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = ["flask (>=3.1.0,<4.0.0)", "dicttoxml (>=1.7.16,<2.0.0)"]
+
+[tool.poetry]
+packages = [{ include = "app", from = "task_1" }]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
