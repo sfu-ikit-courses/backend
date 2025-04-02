@@ -31,7 +31,6 @@ def get_users_by_headers():
         return jsonify({"message": "Accept header not found"}), 404
 
     format = set(format.split(","))
-    print(format)
 
     if "application/json" in format:
         return jsonify({"data": list(USERS.values())})
@@ -102,7 +101,6 @@ def update_user(user_id: int):
         return jsonify({"message": "User not found"}), 404
 
     user = USERS[user_id]
-    print(partial_user)
 
     for key, value in partial_user.items():
         user[key] = value
