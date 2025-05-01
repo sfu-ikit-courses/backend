@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Ошибка 404 - Страница не найдена{% endblock title %}
+
+{% block content %}
+<div class="text-center mt-5">
+    <h1 class="display-4 text-danger">Ошибка 404</h1>
+    <p class="lead">К сожалению, запрошенная вами страница не найдена.</p>
+
+    <p>Возможно, страница была удалена или вы ошиблись при вводе адреса.</p>
+    <a href="{% url 'article.index' %}" class="btn btn-primary">Вернуться на главную</a>
+</div>
+{% endblock content %}

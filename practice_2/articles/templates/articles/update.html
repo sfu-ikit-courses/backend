@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Обновить статью{% endblock title %}
+{% block header %}Обновить статью{% endblock header %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="card shadow-sm">
+    <div class="card-body">
+
+      <div class="mb-3 text-center">
+        <img src="{{ article.featured_image.url }}" alt="{{ article.name }}" class="img-thumbnail"
+          style="max-width: 300px;">
+      </div>
+
+      <form method="POST" action="" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        {{ article_form.media }}
+        {{ article_form|crispy }}
+
+        <div class="d-flex justify-content mt-3">
+          <button type="submit" class="btn btn-primary">Обновить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -31,3 +31,4 @@ pytest_cache/
 .ipynb_checkpoints/
 
 *.db
+*.sqlite3

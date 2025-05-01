@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.name }}{% endblock title %}
+{% block header %}{{ post.name }}{% endblock header %}
+
+{% block content %}
+
+{% if post.featured_image %}
+<img src="{{ post.featured_image.url}}" alt="">
+{% endif %}
+
+<h2>{{ post.name }}</h2>
+<p>{{ post.description }}</p>
+
+<hr>
+
+<div class="d-flex gap-1">
+<a class="btn btn-success" href="{% url 'post_edit' post.pk %}"> Редактировать</a>
+<a class="btn btn-danger" href="{% url 'post_delete' post.pk %}"> Удалить</a>
+</div>
+
+{% endblock content %}
