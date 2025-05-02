@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Обновить статью - {{post.name}}{% endblock title %}
+{% block header %}Обновить статью - {{post.name}}{% endblock header %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+{% if post.featured_image %}
+<img src="{{ post.featured_image.url}}" alt="">
+{% endif %}
+
+<form method="POST" action="" novalidate enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {{form|crispy}}
+
+    <button class="btn btn-primary">Обновить</button>
+</form>
+
+{% endblock content %}

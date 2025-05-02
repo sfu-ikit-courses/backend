@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Категория: {{ category.name }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+  <div class="mb-4 text-center">
+    <h1 class="fw-bold text-primary">Категория: {{ category.name }}</h1>
+    <p class="text-muted">Найдено статей: {{ articles|length }}</p>
+  </div>
+
+  <div class="row g-4">
+    {% for article in articles %}
+    <div class="col-12 col-md-6 col-lg-4">
+      {% include "includes/article-card.html" with article=article %}
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}
