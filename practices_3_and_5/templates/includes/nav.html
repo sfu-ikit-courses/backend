@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'article.index' %}">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'article.index' %}">Статьи</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'article.archive' %}">Архив статей</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'post_list' %}">Посты</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        {% if user.is_authenticated %}
+          <li class="nav-item me-3">
+            <a class="nav-link" href="{% url 'users.profile' %}">Привет, {{ user.username }}!</a>
+          </li>
+          <li class="nav-item">
+            <form action="{% url 'users.logout' %}" method="post" class="d-inline">
+              {% csrf_token %}
+              <button class="btn btn-outline-danger btn-sm" type="submit">Выйти</button>
+            </form>
+          </li>
+        {% else %}
+          <li class="nav-item me-3">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'users.login' %}">Войти</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary btn-sm" href="{% url 'users.register' %}">Зарегистрироваться</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
